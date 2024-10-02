@@ -1,127 +1,94 @@
 <head>
-<style>
-  /* CSS styles for the calculator */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
+    <title>Watch Store</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  .calculator {
-    width: 300px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
 
-  .display {
-    width: 100%;
-    height: 40px;
-    font-size: 24px;
-    text-align: right;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
+        .container {
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 10px;
+        }
 
-  .buttons {
-    padding: 10px;
-  }
+        .watch {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-  .button {
-    width: 60px;
-    height: 40px;
-    font-size: 18px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-  }
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
-  .button:hover {
-    background-color: #3e8e41;
-  }
+        h3 {
+            padding: 10px;
+            text-align: center;
+        }
 
-  .button:active {
-    background-color: #2e6d31;
-  }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+        }
 
-  .operator {
-    background-color: #FF9800;
-  }
+        button:hover {
+            background-color: #3e8e41;
+        }
 
-  .operator:hover {
-    background-color: #FFA07A;
-  }
-
-  .operator:active {
-    background-color: #FF8C69;
-  }
-</style>
+        @media screen and (max-width: 600px) {
+            body {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Calculator HTML structure -->
-  <div class="calculator">
-    <input type="text" id="display" class="display" disabled>
-    <div class="buttons">
-      <button class="button" onclick="clearDisplay()">C</button>
-      <button class="button" onclick="deleteChar()">DEL</button>
-      <button class="button operator" onclick="addOperator('/')">/</button>
-      <button class="button" onclick="addNumber('7')">7</button>
-      <button class="button" onclick="addNumber('8')">8</button>
-      <button class="button" onclick="addNumber('9')">9</button>
-      <button class="button operator" onclick="addOperator('*')">*</button>
-      <button class="button" onclick="addNumber('4')">4</button>
-      <button class="button" onclick="addNumber('5')">5</button>
-      <button class="button" onclick="addNumber('6')">6</button>
-      <button class="button operator" onclick="addOperator('-')">-</button>
-      <button class="button" onclick="addNumber('1')">1</button>
-      <button class="button" onclick="addNumber('2')">2</button>
-      <button class="button" onclick="addNumber('3')">3</button>
-      <button class="button operator" onclick="addOperator('+')">+</button>
-      <button class="button" onclick="addNumber('0')">0</button>
-      <button class="button" onclick="addNumber('.')">.</button>
-      <button class="button" onclick="calculate()">=</button>
+    <h1>Welcome to Our Watch Store!</h1>
+    <p>Choose your favorite watch:</p>
+    <div class="container">
+        <div class="watch">
+            <img src="https://i.ibb.co/YjKNqJC/watch1.jpg" alt="watch1">
+            <h3>Classic Watch</h3>
+            <button>Add to Cart</button>
+        </div>
+        <div class="watch">
+            <img src="https://i.ibb.co/K0WXj0X/watch2.jpg" alt="watch2">
+            <h3>Sport Watch</h3>
+            <button>Add to Cart</button>
+        </div>
+        <div class="watch">
+            <img src="https://i.ibb.co/s9w1xWf/watch3.jpg" alt="watch3">
+            <h3>Smart Watch</h3>
+            <button>Add to Cart</button>
+        </div>
+        <div class="watch">
+            <img src="https://i.ibb.co/WyNnNKz/watch4.jpg" alt="watch4">
+            <h3>Luxury Watch</h3>
+            <button>Add to Cart</button>
+        </div>
     </div>
-  </div>
-
-  <script>
-    // JavaScript code for the calculator
-    let display = document.getElementById('display');
-    let currentExpression = '';
-
-    function clearDisplay() {
-      display.value = '';
-      currentExpression = '';
-    }
-
-    function deleteChar() {
-      currentExpression = currentExpression.slice(0, -1);
-      display.value = currentExpression;
-    }
-
-    function addNumber(num) {
-      currentExpression += num;
-      display.value = currentExpression;
-    }
-
-    function addOperator(op) {
-      currentExpression += op;
-      display.value = currentExpression;
-    }
-
-    function calculate() {
-      try {
-        let result = eval(currentExpression);
-        display.value = result;
-        currentExpression = result.toString();
-      } catch (error) {
-        display.value = 'Error';
-        currentExpression = '';
-      }
-    }
-  </script>
+    <script>
+        // JavaScript for functionality can be added here as per requirements
+    </script>
 </body>
